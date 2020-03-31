@@ -1,3 +1,10 @@
+# Automated Satis Deployment
+
+This is a fork of [maintaina-com/horde-satis.maintaina.com](https://github.com/maintaina-com/horde-satis.maintaina.com), adding a Github Actions workflow for automated deployment of a Satis repository. The repository can be found at [ikselven.github.io/horde-satis](https://ikselven.github.io/horde-satis/). It is updated everyday at 00:00 UTC.
+
+For documentation on the Github Actions workflow, see [.github/workflows/horde-satis.yml](https://github.com/ikselven/horde-satis.maintaina.com/blob/master/.github/workflows/horde-satis.yml).
+For documentation on how to use Satis, see the following sections.
+
 # Satis
 
 Simple static Composer repository generator.

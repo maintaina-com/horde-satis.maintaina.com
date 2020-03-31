@@ -2,31 +2,45 @@
 name: Horde Satis Repo
 
 on:
+  # run the workflow everyday at 00:00 UTC
   schedule:
     - cron: '0 0 * * *'
+  # in addition, run on every push to the master branch
   push:
     branches:
       - master
+    # do not run the workflow when documentation was changed
+    paths-ignore:
+      - docs/*
+      - README.md
+      - LICENSE
 
 jobs:
+  # build the website and deploy it to gh-pages branch of a separate repository
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # clone the repository
       - uses: actions/checkout@v2
 
+      # configure cache for PHP dependecies and retrieve it if available
       - name: Cache PHP dependencies
         uses: actions/cache@v1
         with:
           path: vendor
           key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
-      - uses: php-actions/composer@v1
+      # install dependencies with composer
+      - name: Install PHP dependencies
+        uses: php-actions/composer@v1
 
+      # generate the Satis Website
       - name: Generate Satis Website
         run: |
           COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.SATIS_DEPLOY_PAT }}"}}' ./bin/satis build -n -- ./bin/satis.json artifact/generated_website/
 
+      # deploy the website to gh-pages branch of a separate repository
       - name: Deploy Satis Website
         uses: crazy-max/ghaction-github-pages@v1
         with:
