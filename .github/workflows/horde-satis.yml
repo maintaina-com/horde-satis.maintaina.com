@@ -24,7 +24,7 @@ jobs:
       - uses: php-actions/composer@v1
 
       - name: Generate Satis Website
-        run: ./bin/satis build satis/bin/satis.json artifact/generated_website/
+        run: ./bin/satis build ./bin/satis.json artifact/generated_website/
 
       - name: Upload generated website
         uses: actions/upload-artifact@v1
