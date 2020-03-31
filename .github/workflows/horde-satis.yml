@@ -1,0 +1,28 @@
+---
+name: Horde Satis Repo
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install project dependencies
+        run: composer install -n
+
+      - name: Generate Satis Website
+        run: ./bin/satis build satis/bin/satis.json artifact/generated_website/
+
+      - name: Upload generated website
+        uses: actions/upload-artifact@v1
+        with:
+          name: satis-website
+          path: artifact/generated_website
