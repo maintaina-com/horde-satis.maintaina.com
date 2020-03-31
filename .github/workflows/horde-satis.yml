@@ -24,7 +24,8 @@ jobs:
       - uses: php-actions/composer@v1
 
       - name: Generate Satis Website
-        run: ./bin/satis build -n -- ./bin/satis.json artifact/generated_website/
+        run: |
+          COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.COMPOSER_GITHUB_TOKEN }}"}}' ./bin/satis build -n -- ./bin/satis.json artifact/generated_website/
 
       - name: Upload generated website
         uses: actions/upload-artifact@v1
