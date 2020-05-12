@@ -46,6 +46,7 @@
      {"url": "https://github.com/maintaina-com/Group", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Http", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Image", "type": "vcs"},
+     {"url": "https://github.com/maintaina-com/Ldap", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/LoginTasks", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Mail", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Mime", "type": "vcs"},
