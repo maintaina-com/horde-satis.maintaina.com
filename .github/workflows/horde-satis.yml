@@ -58,7 +58,7 @@ jobs:
 
       # deploy the website to gh-pages branch of a separate repository
       - name: Deploy Satis Website
-        uses: crazy-max/ghaction-github-pages@v1
+        uses: crazy-max/ghaction-github-pages@v2
         with:
           repo: ikselven/horde-satis
           target_branch: gh-pages
@@ -66,4 +66,4 @@ jobs:
           keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_PAT: ${{ secrets.SATIS_DEPLOY_PAT }}
+          GH_PAT: ${{ secrets.SATIS_DEPLOY_PAT }}
