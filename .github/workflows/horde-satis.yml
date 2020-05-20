@@ -60,7 +60,7 @@ jobs:
       - name: Deploy Satis Website
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          repo: ikselven/horde-satis
+          repo: maintaina-com/maintaina-com.github.io
           target_branch: gh-pages
           build_dir: artifact/generated_website/
           keep_history: true
