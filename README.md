@@ -1,3 +1,15 @@
+# Satis for maintain-com.github.io
+
+The satis version used for horde-satis.maintaina.com along with the config and the tool which creates the config.
+
+There is a Github Actions workflow configured for automated deployment of the
+Satis repository at [maintaina-com/maintaina-com.github.io](https://github.com/maintaina-com/maintaina-com.github.io).
+The workflow is configured to run everyday at 00:00 UTC and when commits are pushed to
+the master branch.
+
+For details on the Github Actions workflow, see [.github/workflows/horde-satis.yml](https://github.com/maintain-com/horde-satis.maintaina.com/blob/master/.github/workflows/horde-satis.yml).
+For documentation on Satis, read the following sections.
+
 # Satis
 
 Simple static Composer repository generator.

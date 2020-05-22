@@ -1,0 +1,69 @@
+---
+name: Horde Satis Repo
+
+on:
+  # run the workflow everyday at 00:00 UTC
+  schedule:
+    - cron: '0 0 * * *'
+  # in addition, run on every push to the master branch
+  push:
+    branches:
+      - master
+    # do not run the workflow when documentation was changed
+    paths-ignore:
+      - docs/*
+      - README.md
+      - LICENSE
+
+jobs:
+  # build the website and deploy it to gh-pages branch of a separate repository
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # clone the repository
+      - uses: actions/checkout@v2
+
+      # Preparations for caching composer's cache directory
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      # configure the Github Actions cache for composer's cache directory and
+      # retrieve it if available
+      - name: Cache Composer Downloads
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      # configure cache for PHP dependencies and retrieve it if available
+      - name: Cache PHP dependencies
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+
+      # install dependencies with composer
+      - name: Install PHP dependencies
+        uses: php-actions/composer@v1
+
+      # generate the Satis Website
+      - name: Generate Satis Website
+        run: |
+          COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}' ./bin/satis build -n -- ./bin/satis.json artifact/generated_website/
+
+      # deploy the website to gh-pages branch of a separate repository
+      - name: Deploy Satis Website
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          repo: maintaina-com/maintaina-com.github.io
+          target_branch: master
+          build_dir: artifact/generated_website/
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.SATIS_DEPLOY_PAT }}
