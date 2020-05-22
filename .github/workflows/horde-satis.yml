@@ -54,7 +54,7 @@ jobs:
       # generate the Satis Website
       - name: Generate Satis Website
         run: |
-          COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}' ./bin/satis build -n -- ./bin/satis.json artifact/generated_website/
+          COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}' php7.3 ./bin/satis build -n -- ./bin/satis.json artifact/generated_website/
 
       # deploy the website to gh-pages branch of a separate repository
       - name: Deploy Satis Website
