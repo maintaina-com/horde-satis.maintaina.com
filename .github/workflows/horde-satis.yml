@@ -61,7 +61,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v2
         with:
           repo: maintaina-com/maintaina-com.github.io
-          target_branch: gh-pages
+          target_branch: master
           build_dir: artifact/generated_website/
           keep_history: true
         env:
