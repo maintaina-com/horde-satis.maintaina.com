@@ -110,6 +110,7 @@
      {"url": "https://github.com/maintaina-com/Test", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Socket_Client", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Mail_Autoconfig", "type": "vcs"},
+     {"url": "https://github.com/maintaina-com/Itip", "type": "vcs"},
 
      {"url": "https://github.com/maintaina-com/Rdo", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Date_Parser", "type": "vcs"},
