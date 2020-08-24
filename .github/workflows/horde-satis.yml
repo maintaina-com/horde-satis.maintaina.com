@@ -35,7 +35,7 @@ jobs:
       # configure the Github Actions cache for composer's cache directory and
       # retrieve it if available
       - name: Cache Composer Downloads
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -44,10 +44,12 @@ jobs:
 
       # configure cache for PHP dependencies and retrieve it if available
       - name: Cache PHP dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: vendor
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       # install dependencies with composer
       - name: Install PHP dependencies
