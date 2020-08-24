@@ -14,6 +14,8 @@ on:
       - docs/*
       - README.md
       - LICENSE
+  # the workflow can also be triggered manually
+  workflow_dispatch:
 
 jobs:
   # build the website and deploy it to gh-pages branch of a separate repository
