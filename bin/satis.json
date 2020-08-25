@@ -116,8 +116,6 @@
      {"url": "https://github.com/maintaina-com/Date_Parser", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Routes", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/horde-deployment", "type": "vcs"},
-     {"url": "https://github.com/maintaina-com/Core", "type": "vcs"},
-     {"url": "https://github.com/maintaina-com/Cli_Modular", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Pear", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Role", "type": "vcs"},
      {"url": "https://github.com/maintaina-com/Release", "type": "vcs"},
