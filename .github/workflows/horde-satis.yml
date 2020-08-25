@@ -26,30 +26,30 @@ jobs:
       # clone the repository
       - uses: actions/checkout@v2
 
-      # Preparations for caching composer's cache directory
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      # # Preparations for caching composer's cache directory
+      # - name: Get Composer Cache Directory
+      #   id: composer-cache
+      #   run: |
+      #     echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-      # configure the Github Actions cache for composer's cache directory and
-      # retrieve it if available
-      - name: Cache Composer Downloads
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+      # # configure the Github Actions cache for composer's cache directory and
+      # # retrieve it if available
+      # - name: Cache Composer Downloads
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ${{ steps.composer-cache.outputs.dir }}
+      #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-composer-
 
-      # configure cache for PHP dependencies and retrieve it if available
-      - name: Cache PHP dependencies
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
+      # # configure cache for PHP dependencies and retrieve it if available
+      # - name: Cache PHP dependencies
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: vendor
+      #     key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-build-
 
       # install dependencies with composer
       - name: Install PHP dependencies
