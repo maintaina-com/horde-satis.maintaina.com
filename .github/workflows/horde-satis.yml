@@ -26,41 +26,37 @@ jobs:
       # clone the repository
       - uses: actions/checkout@v2
 
-      # # Preparations for caching composer's cache directory
-      # - name: Get Composer Cache Directory
-      #   id: composer-cache
-      #   run: |
-      #     echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      # # configure the Github Actions cache for composer's cache directory and
-      # # retrieve it if available
-      # - name: Cache Composer Downloads
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: ${{ steps.composer-cache.outputs.dir }}
-      #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-composer-
-
-      # # configure cache for PHP dependencies and retrieve it if available
-      # - name: Cache PHP dependencies
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: vendor
-      #     key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-build-
-
-      # install dependencies with composer
-      - name: Install PHP dependencies
-        uses: php-actions/composer@v1
-
-      # generate the Satis Website
-      - name: Generate Satis Website
+      # prepare cache key
+      - name: Get Date
+        id: get-date
         run: |
-          COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}' \
-            php7.3 ./bin/satis --no-ansi --no-interaction -vvv build -- \
-            ./bin/satis.json artifact/generated_website/
+          echo "::set-output name=date::$(/bin/date -u "+%F")"
+        shell: bash
+
+      # cache composer directory to make repo generation faster and reduce
+      # chances of running into Github's API limit
+      - name: Cache composer directory
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer
+          key: ${{ runner.os }}-php-${{ steps.get-date.outputs.date }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      # generate the package list and the Satis repo website
+      - name: Generate package list and Satis repository website
+        run: |
+          mkdir build
+          ln bin/satis.json build/satis.json
+          composer config -g github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
+          docker pull "docker.io/composer/satis:latest"
+          docker run --rm --init \
+            -u $(id -u):$(id -g) \
+            -v $(pwd)/build:/build \
+            -v "${COMPOSER_HOME:-$HOME/.composer}:/composer" \
+            composer/satis -vvv --no-ansi --no-interaction build -- \
+            /build/satis.json /build/output
 
       # deploy the website to gh-pages branch of a separate repository
       - name: Deploy Satis Website
@@ -68,7 +64,7 @@ jobs:
         with:
           repo: maintaina-com/maintaina-com.github.io
           target_branch: master
-          build_dir: artifact/generated_website/
+          build_dir: build/output/
           keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
