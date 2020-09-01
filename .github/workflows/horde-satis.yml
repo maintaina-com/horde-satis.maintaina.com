@@ -33,13 +33,14 @@ jobs:
           echo "::set-output name=date::$(/bin/date -u "+%F")"
         shell: bash
 
-      # cache composer directory to make repo generation faster and reduce
-      # chances of running into Github's API limit
-      - name: Cache composer directory
-        id: composer-cache
+      # cache composer directory and build output to make repo generation faster
+      - name: Cache composer directory and build output
+        id: composer-and-build-output-cache
         uses: actions/cache@v2
         with:
-          path: ~/.composer
+          path: |
+            ~/.composer
+            build/output
           key: ${{ runner.os }}-php-${{ steps.get-date.outputs.date }}
           restore-keys: |
             ${{ runner.os }}-php-
@@ -47,14 +48,15 @@ jobs:
       # generate the package list and the Satis repo website
       - name: Generate package list and Satis repository website
         run: |
-          mkdir build
+          mkdir -p build
           ln bin/satis.json build/satis.json
+          export COMPOSER_HOME="$HOME/.composer"
           composer config -g github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
           docker pull "docker.io/composer/satis:latest"
           docker run --rm --init \
             -u $(id -u):$(id -g) \
             -v $(pwd)/build:/build \
-            -v "${COMPOSER_HOME:-$HOME/.composer}:/composer" \
+            -v "${COMPOSER_HOME}:/composer" \
             composer/satis -vvv --no-ansi --no-interaction build -- \
             /build/satis.json /build/output
 
