@@ -11,7 +11,7 @@
         {"url": "https://github.com/maintaina-com/pear-core", "type": "vcs"},
 
         {"url": "https://github.com/maintaina-com/base", "type": "vcs"},
-
+        {"url": "https://github.com/maintaina-com/hordectl", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/ansel", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/content", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/imp", "type": "vcs"},
