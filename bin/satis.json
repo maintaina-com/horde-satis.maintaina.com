@@ -70,6 +70,7 @@
         {"url": "https://github.com/maintaina-com/Log", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/LoginTasks", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Mail", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/ManageSieve", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Mail_Autoconfig", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Mapi", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Mime", "type": "vcs"},
