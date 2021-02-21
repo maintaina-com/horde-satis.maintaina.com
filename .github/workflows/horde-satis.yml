@@ -20,7 +20,7 @@ on:
 jobs:
   # build the website and deploy it to gh-pages branch of a separate repository
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       # clone the repository
