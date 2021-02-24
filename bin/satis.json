@@ -50,6 +50,7 @@
         {"url": "https://github.com/maintaina-com/Dav", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Db", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Editor", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/elasticsearch", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Exception", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Form", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Group", "type": "vcs"},
