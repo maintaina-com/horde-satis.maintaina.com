@@ -8,7 +8,6 @@
         {"url": "https://github.com/maintaina-com/git-tools", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/horde-deployment", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/horde-installer-plugin", "type": "vcs"},
-        {"url": "https://github.com/maintaina-com/pear-core", "type": "vcs"},
 
         {"url": "https://github.com/maintaina-com/base", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/hordectl", "type": "vcs"},
