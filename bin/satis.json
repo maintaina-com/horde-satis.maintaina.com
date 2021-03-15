@@ -23,6 +23,7 @@
         {"url": "https://github.com/maintaina-com/timeobjects", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/turba", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/whups", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/wicked", "type": "vcs"},
 
         {"url": "https://github.com/maintaina-com/ActiveSync", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Alarm", "type": "vcs"},
@@ -124,6 +125,13 @@
         {"url": "https://github.com/maintaina-com/View", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Xml_Element", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Xml_Wbxml", "type": "vcs"},
-        {"url": "https://github.com/maintaina-com/Yaml", "type": "vcs"}
+        {"url": "https://github.com/maintaina-com/Yaml", "type": "vcs"},
+
+        {"url": "https://github.com/ralflang/Crypt_CHAP", "type": "vcs"},
+        {"url": "https://github.com/ralflang/xml_svg", "type": "vcs"},
+        {"url": "https://github.com/ralflang/file_fstab", "type": "vcs"},
+        {"url": "https://github.com/ralflang/text_figlet", "type": "vcs"},
+        {"url": "https://github.com/ralflang/text_captcha", "type": "vcs"},
+        
     ]
 }
