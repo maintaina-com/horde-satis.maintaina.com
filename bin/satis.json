@@ -131,7 +131,7 @@
         {"url": "https://github.com/ralflang/xml_svg", "type": "vcs"},
         {"url": "https://github.com/ralflang/file_fstab", "type": "vcs"},
         {"url": "https://github.com/ralflang/text_figlet", "type": "vcs"},
-        {"url": "https://github.com/ralflang/text_captcha", "type": "vcs"},
+        {"url": "https://github.com/ralflang/text_captcha", "type": "vcs"}
         
     ]
 }
