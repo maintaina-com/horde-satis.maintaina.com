@@ -23,6 +23,8 @@
         {"url": "https://github.com/maintaina-com/timeobjects", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/turba", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/whups", "type": "vcs"},
+        
+        {"url": "https://github.com/maintaina-com/vilma", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/wicked", "type": "vcs"},
 
         {"url": "https://github.com/maintaina-com/ActiveSync", "type": "vcs"},
