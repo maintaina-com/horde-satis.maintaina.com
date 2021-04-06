@@ -37,24 +37,13 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
+          tools: composer:v2
           php-version: '7.4'
         env:
           COMPOSER_TOKEN: ${{ secrets.PHPDOC_TOKEN }}
  
       - name: Setup Github Token as composer credential
         run: composer config -g github-oauth.github.com ${{ secrets.PHPDOC_TOKEN}}
-      - name: DEBUG
-        run: ls /home/runner/.composer ; cat /home/runner/.composer/auth.json
-      - name: Cache composer directory and build output
-        id: composer-and-build-output-cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.composer
-            build/output
-          key: ${{ runner.os }}-php-${{ steps.get-date.outputs.date }}
-          restore-keys: |
-            ${{ runner.os }}-php-
 
       # generate the package list and the Satis repo website
       - name: Generate package list and Satis repository website
