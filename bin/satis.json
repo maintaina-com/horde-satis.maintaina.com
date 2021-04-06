@@ -1,5 +1,5 @@
 {
-    "name": "Maintaina.com Horde Composer Fork",
+    "name": "maintaina-com/horde-satis.maintaina.com",
     "homepage": "https://horde-satis.maintaina.com",
 
     "require-all": true,
