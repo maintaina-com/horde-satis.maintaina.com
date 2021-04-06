@@ -52,6 +52,7 @@ jobs:
           ln bin/satis.json build/satis.json
           export COMPOSER_HOME="$HOME/.composer"
           composer config -g github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
+          composer install
           bin/satis build build/satis.json build/output
 #          docker pull "docker.io/composer/satis:latest"
 #          docker run --rm --init \
