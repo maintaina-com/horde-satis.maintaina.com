@@ -34,9 +34,12 @@ jobs:
         shell: bash
       - name: Setup github ssh key
         run:  mkdir -p ~/.ssh/ && ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
-      - name: Setup Github Token as composer credential
-        run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
-        # cache composer directory and build output to make repo generation faster
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+        env:
+          COMPOSER_TOKEN: ${{ secrets.PHPDOC_TOKEN }}
       - name: Cache composer directory and build output
         id: composer-and-build-output-cache
         uses: actions/cache@v2
@@ -53,17 +56,8 @@ jobs:
         run: |
           mkdir -p build
           ln bin/satis.json build/satis.json
-          export COMPOSER_HOME="$HOME/.composer"
           composer install
           bin/satis build build/satis.json build/output
-#          docker pull "docker.io/composer/satis:latest"
-#          docker run --rm --init \
-#            -u $(id -u):$(id -g) \
-#            -v $(pwd)/build:/build \
-#            -v "${COMPOSER_HOME}:/composer" \
-#            composer/satis -vvv --no-ansi --no-interaction build -- \
-#            /build/satis.json /build/output
-
       # deploy the website to gh-pages branch of a separate repository
       - name: Deploy Satis Website
         uses: crazy-max/ghaction-github-pages@v2
