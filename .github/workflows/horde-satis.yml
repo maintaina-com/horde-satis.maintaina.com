@@ -32,8 +32,11 @@ jobs:
         run: |
           echo "::set-output name=date::$(/bin/date -u "+%F")"
         shell: bash
-
-      # cache composer directory and build output to make repo generation faster
+      - name: Setup github ssh key
+        run:  mkdir -p ~/.ssh/ && ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
+      - name: Setup Github Token as composer credential
+        run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+        # cache composer directory and build output to make repo generation faster
       - name: Cache composer directory and build output
         id: composer-and-build-output-cache
         uses: actions/cache@v2
@@ -51,7 +54,6 @@ jobs:
           mkdir -p build
           ln bin/satis.json build/satis.json
           export COMPOSER_HOME="$HOME/.composer"
-          composer config -g github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
           composer install
           bin/satis build build/satis.json build/output
 #          docker pull "docker.io/composer/satis:latest"
