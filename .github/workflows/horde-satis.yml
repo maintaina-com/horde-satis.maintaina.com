@@ -52,13 +52,14 @@ jobs:
           ln bin/satis.json build/satis.json
           export COMPOSER_HOME="$HOME/.composer"
           composer config -g github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
-          docker pull "docker.io/composer/satis:latest"
-          docker run --rm --init \
-            -u $(id -u):$(id -g) \
-            -v $(pwd)/build:/build \
-            -v "${COMPOSER_HOME}:/composer" \
-            composer/satis -vvv --no-ansi --no-interaction build -- \
-            /build/satis.json /build/output
+          bin/satis build build/satis.json build/output
+#          docker pull "docker.io/composer/satis:latest"
+#          docker run --rm --init \
+#            -u $(id -u):$(id -g) \
+#            -v $(pwd)/build:/build \
+#            -v "${COMPOSER_HOME}:/composer" \
+#            composer/satis -vvv --no-ansi --no-interaction build -- \
+#            /build/satis.json /build/output
 
       # deploy the website to gh-pages branch of a separate repository
       - name: Deploy Satis Website
