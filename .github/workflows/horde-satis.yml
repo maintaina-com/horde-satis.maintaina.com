@@ -44,9 +44,7 @@ jobs:
       - name: Setup Github Token as composer credential
         run: composer config -g github-oauth.github.com ${{ secrets.PHPDOC_TOKEN}}
       - name: DEBUG
-        run: |
-        ls /home/runner
-        cat /home/runner/.composer/auth.json
+        run: ls /home/runner/.composer ; cat /home/runner/.composer/auth.json
       - name: Cache composer directory and build output
         id: composer-and-build-output-cache
         uses: actions/cache@v2
