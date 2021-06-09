@@ -137,6 +137,9 @@
         {"url": "https://github.com/maintaina-com/Xml_Wbxml", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Yaml", "type": "vcs"},
 
+        {"url": "https://github.com/maintaina-com/theme-hochschule", "type": "vcs"},
+
+        
         {"url": "https://github.com/ralflang/console_getopt", "type": "vcs"},
         {"url": "https://github.com/ralflang/Crypt_CHAP", "type": "vcs"},
         {"url": "https://github.com/ralflang/xml_svg", "type": "vcs"},
