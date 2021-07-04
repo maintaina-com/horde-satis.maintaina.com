@@ -31,6 +31,15 @@
         {"url": "https://github.com/maintaina-com/chora", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/vilma", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/wicked", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/refactor", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/trean", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/ulaform", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/sesha", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/skeleton", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/sam", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/operator", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/pastie", "type": "vcs"},
+
 
         {"url": "https://github.com/maintaina-com/ActiveSync", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Alarm", "type": "vcs"},
@@ -136,7 +145,26 @@
         {"url": "https://github.com/maintaina-com/Xml_Element", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Xml_Wbxml", "type": "vcs"},
         {"url": "https://github.com/maintaina-com/Yaml", "type": "vcs"},
+        
+        {"url": "https://github.com/maintaina-com/thrift", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/service_urlshortener", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/service_vimeo", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/service_facebook", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/service_twitter", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/scribe", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/reflection", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/pgp", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/rampage", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/oauth", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/kolab_resource", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/pdf", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/lens", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/openxchange", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/mongo", "type": "vcs"},
+        {"url": "https://github.com/maintaina-com/memcache", "type": "vcs"},
 
+        
+        
         {"url": "https://github.com/maintaina-com/theme-hochschule", "type": "vcs"},
 
         
